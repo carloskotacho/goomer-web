@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MenuItem } from 'primeng/api';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,11 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  exibindoMenu = true;
+  // exibindoMenu = true;
+
+  items: MenuItem[];
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.items = [
+      {
+        label: 'Restaurantes',
+        icon: 'fas fa-utensils',
+      },
+      {
+        label: 'Produtos',
+        icon: 'fas fa-cubes',
+      },
+    ];
   }
 
 }
