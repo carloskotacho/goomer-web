@@ -1,0 +1,65 @@
+<div class="container">
+  <form>
+
+    <div class="p-grid">
+      <div class="p-col-12">
+        <h1>Novo Restaurante</h1>
+      </div>
+
+      <div class="p-col-6 p-md-6 p-fluid">
+        <label>Nome</label>
+        <input pInputText type="text">
+      </div>
+
+      <div class="p-col-6 p-md-6 p-fluid">
+        <label>Endereço</label>
+        <input pInputText type="text">
+      </div>
+
+      <div class="p-col-12">
+        <h3>Horários de Funcionamento</h3>
+      </div>
+
+      <div class="p-grid p-col-12 p-fluid">
+        <div class="p-col-12">
+          Dias Úteis
+        </div>
+
+        <div class="p-col-6">
+          <p-calendar [(ngModel)]="workingDaysStartHours" [timeOnly]="true" inputId="timeonly"
+            name="workingDaysStartHours" placeholder="Abertura">
+          </p-calendar>
+        </div>
+
+        <div class="p-col-6">
+          <p-calendar [(ngModel)]="workingDaysEndHours" [timeOnly]="true" inputId="timeonly" name="workingDaysEndHours"
+            placeholder="Fechamento">
+          </p-calendar>
+        </div>
+
+        <div class="p-col-12">
+          Finais de Semana
+        </div>
+
+        <div class="p-col-6">
+          <p-calendar [(ngModel)]="weekendsStartHours" [timeOnly]="true" inputId="timeonly" name="weekendsStartHours"
+            placeholder="Abertura">
+          </p-calendar>
+        </div>
+
+        <div class="p-col-6">
+          <p-calendar [(ngModel)]="weekendsEndHours" [timeOnly]="true" inputId="timeonly" name="weekendsEndHours"
+            placeholder="Fechamento">
+          </p-calendar>
+        </div>
+      </div>
+
+      <div class="p-field p-col-12">
+        <button pButton type="submit" label="Salvar"></button>
+        <button pButton type="button" label="Novo" class="ui-button-info"></button>
+        <a href="javascript:;">Voltar para a pesquisa</a>
+      </div>
+    </div>
+
+  </form>
+</div>
