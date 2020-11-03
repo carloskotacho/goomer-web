@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="p-grid">
+
+    <div class="p-col-12">
+      <h1>Restaurantes</h1>
+    </div>
+
+    <div class="p-col-12 p-fluid">
+      <label>Nome</label>
+      <input pInputText type="text">
+    </div>
+
+    <div class="p-col-12">
+      <button pButton type="submit" label="Pesquisar"></button>
+    </div>
+
+  </div>
+
+  <div class="p-grid">
+    <div class="p-col-12">
+      <p-table [value]="restaurants" [paginator]="true" [rows]="5" [responsive]="true">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th pTooltip="Horário de Funcionamento" tooltipPosition="top">H. Funcionamento</th>
+            <th style="width:150px"></th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-restaurant>
+          <tr>
+            <td>{{ restaurant.name }}</td>
+            <td>{{ restaurant.address }}</td>
+            <td>{{ restaurant.schedules }}</td>
+            <td class="col-actions">
+              <button pButton icon="fas fa-edit" pTooltip="Editar" tooltipPosition="top"></button>
+              <button pButton icon="fas fa-trash-alt" pTooltip="Excluir" tooltipPosition="top"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+    <div class="p-col-12">
+      <a pButton label="Novo Restaurante" style="color: #fff"></a>
+    </div>
+  </div>
+
+</div>
