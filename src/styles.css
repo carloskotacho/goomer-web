@@ -15,3 +15,13 @@ label{
     margin: 0 auto;
   }
 }
+
+body .p-button {
+  background: #009ca3;
+  border-color: #009ca3;
+}
+
+body .p-button:enabled:hover{
+  background-color: #009ca3;
+  border-color: #009ca3;
+}

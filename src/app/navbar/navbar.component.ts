@@ -9,8 +9,6 @@ import { MenuItem } from 'primeng/api';
 })
 export class NavbarComponent implements OnInit {
 
-  // exibindoMenu = true;
-
   items: MenuItem[];
 
   constructor() { }
