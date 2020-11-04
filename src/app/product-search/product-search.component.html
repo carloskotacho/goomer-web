@@ -1,31 +1,39 @@
 <div class="container">
-  <div class="p-grid">
+
+  <!--div class="p-grid">
 
     <div class="p-col-12">
-      <h1>Produtos</h1>
-    </div>
+      <div class="card">
+        <span class="overview-icon"><i class="fas fa-poll-h"></i></span>
+        <span class="overview-title">Cadastrados</span>
+        <div class="p-grid overview-detail">
+          <div class="p-col-6">
+            <div class="overview-number">340</div>
+            <div class="overview-subtext">Restaurantes</div>
+          </div>
 
-    <div class="p-grid p-col-12 p-fluid">
-      <div class="p-col-6 p-fluid">
-        <label>Restaurante</label>
-        <input pInputText type="text">
+          <div class="p-col-6">
+            <div class="overview-number">12552</div>
+            <div class="overview-subtext">Produtos</div>
+          </div>
+        </div>
       </div>
-
-      <div class="p-col-6 p-fluid">
-        <label>Produto</label>
-        <input pInputText type="text">
-      </div>
     </div>
-
-    <div class="p-col-12">
-      <button pButton type="submit" label="Pesquisar"></button>
-    </div>
-
-  </div>
+  </div-->
 
   <div class="p-grid">
     <div class="p-col-12">
       <p-table [value]="products" [paginator]="true" [rows]="5" [responsive]="true">
+        <ng-template pTemplate="caption">
+          <div class="table-header">
+            Produtos
+            <span class="p-input-icon-left">
+              <i class="pi pi-search"></i>
+              <input pInputText type="text" placeholder="Pesquisar" />
+            </span>
+          </div>
+        </ng-template>
+
         <ng-template pTemplate="header">
           <tr>
             <th>Restaurante</th>
