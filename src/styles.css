@@ -9,6 +9,10 @@ label{
   font-weight: bold;
 }
 
+.container {
+  padding: 1em;
+}
+
 @media (min-width: 1200px){
   .container{
     width: 1170px;

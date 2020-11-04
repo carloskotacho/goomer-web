@@ -6,3 +6,8 @@ a {
 button {
   margin-right: .5em;
 }
+
+.left i {
+  color: #009ca3;
+  margin-right: .5em;
+}
