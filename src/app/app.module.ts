@@ -18,6 +18,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RestaurantSearchComponent } from './restaurant-search/restaurant-search.component';
 import { RestaurantStoreComponent } from './restaurant-store/restaurant-store.component';
+import { ProductSearchComponent } from './product-search/product-search.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RestaurantStoreComponent } from './restaurant-store/restaurant-store.co
     NavbarComponent,
     RestaurantSearchComponent,
     RestaurantStoreComponent,
+    ProductSearchComponent,
   ],
   imports: [
     BrowserModule,
