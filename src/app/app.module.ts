@@ -12,6 +12,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
 import { ChipsModule } from 'primeng/chips';
+import { SplitButtonModule } from 'primeng/splitbutton';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ import { ProductSearchComponent } from './product-search/product-search.componen
     InputTextareaModule,
     CalendarModule,
     ChipsModule,
+    SplitButtonModule,
 
     AppRoutingModule
   ],

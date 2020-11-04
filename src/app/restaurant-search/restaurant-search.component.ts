@@ -1,3 +1,4 @@
+import { MenuItem } from 'primeng/api';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
