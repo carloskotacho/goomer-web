@@ -25,3 +25,12 @@ body .p-button:enabled:hover{
   background-color: #009ca3;
   border-color: #009ca3;
 }
+
+body .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: #CBEBEE;
+  border-color: #CBEBEE;
+}
+
+body .p-menu-overlay {
+  position: initial;
+}
