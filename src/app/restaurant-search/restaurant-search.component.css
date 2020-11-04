@@ -1,3 +1,51 @@
 .col-actions button {
   margin-right: .5em;
 }
+
+.card-restaurant {
+  min-height: 6rem;
+  position: relative;
+  border-top: 4px solid;
+  border-top-color: #009ca3;
+
+  padding: 1em;
+}
+
+.overview-icon {
+  background: #CBEBEE;
+  color: #009ca3;
+
+  display: inline-block;
+  border-radius: 4px;
+  width: 2em;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.overview-title {
+  color: #009ca3;
+
+  font-weight: 600;
+  font-size: 1.25rem;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+.overview-detail {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.overview-number {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.overview-subtext {
+  color: #6c757d;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
