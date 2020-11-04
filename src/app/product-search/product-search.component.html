@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="p-grid">
+
+    <div class="p-col-12">
+      <h1>Produtos</h1>
+    </div>
+
+    <div class="p-grid p-col-12 p-fluid">
+      <div class="p-col-6 p-fluid">
+        <label>Restaurante</label>
+        <input pInputText type="text">
+      </div>
+
+      <div class="p-col-6 p-fluid">
+        <label>Produto</label>
+        <input pInputText type="text">
+      </div>
+    </div>
+
+    <div class="p-col-12">
+      <button pButton type="submit" label="Pesquisar"></button>
+    </div>
+
+  </div>
+
+  <div class="p-grid">
+    <div class="p-col-12">
+      <p-table [value]="products" [paginator]="true" [rows]="5" [responsive]="true">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Restaurante</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+            <th>Descrição</th>
+            <th>Promoção</th>
+            <th style="width:150px"></th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-products>
+          <tr>
+            <td>{{ products.restaurant }}</td>
+            <td>{{ products.name }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.category }}</td>
+            <td>
+              <span *ngIf="products.description == null; else elseDescription" class="product-badge">Não</span>
+              <ng-template #elseDescription>{{ products.description }}</ng-template>
+            </td>
+            <td>
+              <span *ngIf="products.promotion == null; else elsePromotion" class="product-badge">Não</span>
+              <ng-template #elsePromotion>{{ products.promotion }}</ng-template>
+            </td>
+            <td class="col-actions">
+              <button pButton icon="fas fa-edit" pTooltip="Editar" tooltipPosition="top"></button>
+              <button pButton icon="fas fa-trash-alt" pTooltip="Excluir" tooltipPosition="top"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+    <div class="p-col-12">
+      <a pButton label="Novo Produto" style="color: #fff"></a>
+    </div>
+  </div>
+
+</div>
