@@ -15,6 +15,7 @@ import { ChipsModule } from 'primeng/chips';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { CheckboxModule } from 'primeng/checkbox';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,6 +51,7 @@ import { ProductStoreComponent } from './product-store/product-store.component';
     SplitButtonModule,
     SelectButtonModule,
     CheckboxModule,
+    CurrencyMaskModule,
 
     AppRoutingModule
   ],
