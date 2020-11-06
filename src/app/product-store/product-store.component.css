@@ -1,0 +1,17 @@
+a {
+  text-decoration: none;
+  color: #009ca3;
+}
+
+button {
+  margin-right: .5em;
+}
+
+.left i {
+  color: #009ca3;
+  margin-right: .5em;
+}
+
+.checkbox label {
+  margin-left: .5em;
+}

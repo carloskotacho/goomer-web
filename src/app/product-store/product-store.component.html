@@ -1,0 +1,104 @@
+<div class="container">
+  <form>
+
+    <div class="p-grid">
+      <div class="p-col-12">
+        <h1>Novo Produto</h1>
+        <div class="left">
+          <i class="fas fa-chevron-left"></i>
+          <a href="javascript:;">Voltar</a>
+        </div>
+      </div>
+
+      <div class="p-col-12 p-md-4 p-fluid">
+        <label>Nome</label>
+        <input pInputText type="text">
+      </div>
+
+      <div class="p-col-12 p-md-4 p-fluid">
+        <label>Categoria</label>
+        <input pInputText type="text">
+      </div>
+
+      <div class="p-col-12 p-md-4 p-fluid">
+        <label>Preço</label>
+        <input pInputText type="text">
+      </div>
+
+      <div class="p-col-12 p-fluid">
+        <label>Descrição</label>
+        <textarea pInputTextarea [rows]="5" [cols]="30" autoResize="autoResize"
+          placeholder="Escreva alguma coisa..."></textarea>
+      </div>
+
+      <div class="p-col-12">
+        <h4>Promoção</h4>
+        <p-selectButton [options]="options" [(ngModel)]="value" name="value"></p-selectButton>
+      </div>
+
+      <div class="p-col-12">
+        <h4>Selecione os dias da semana</h4>
+      </div>
+
+      <div class="p-col-12 checkbox">
+        <p-checkbox name="groupname" value="monday" [(ngModel)]="selectedValues"></p-checkbox>
+        <label for="monday">Segunda</label>
+      </div>
+
+      <div class="p-col-12 checkbox">
+        <p-checkbox name="groupname" value="tuesday" [(ngModel)]="selectedValues"></p-checkbox>
+        <label for="tuesday">Terça</label>
+      </div>
+
+      <div class="p-col-12 checkbox">
+        <p-checkbox name="groupname" value="wednesday" [(ngModel)]="selectedValues"></p-checkbox>
+        <label for="wednesday">Quarta</label>
+      </div>
+
+      <div class="p-col-12 checkbox">
+        <p-checkbox name="groupname" value="thursday" [(ngModel)]="selectedValues"></p-checkbox>
+        <label for="thursday">Quinta</label>
+      </div>
+
+      <div class="p-col-12 checkbox">
+        <p-checkbox name="groupname" value="friday" [(ngModel)]="selectedValues"></p-checkbox>
+        <label for="friday">Sexta</label>
+      </div>
+
+      <div class="p-col-12 checkbox">
+        <p-checkbox name="groupname" value="saturday" [(ngModel)]="selectedValues"></p-checkbox>
+        <label for="saturday">Sábado</label>
+      </div>
+
+      <div class="p-col-12 checkbox">
+        <p-checkbox name="groupname" value="sunday" [(ngModel)]="selectedValues"></p-checkbox>
+        <label for="sunday">Domingo</label>
+      </div>
+
+      <div class="p-col-12">
+        <h4>Preencha os horário</h4>
+      </div>
+
+      <div class="p-col-12 p-md-6 p-fluid">
+        <p-calendar [(ngModel)]="startHours" [timeOnly]="true" inputId="timeonly" name="startHours"
+          placeholder="Início">
+        </p-calendar>
+      </div>
+
+      <div class="p-col-12 p-md-6 p-fluid">
+        <p-calendar [(ngModel)]="endHours" [timeOnly]="true" inputId="timeonly" name="endHours" placeholder="Término">
+        </p-calendar>
+      </div>
+
+      <div class="p-col-12 p-md-2 p-fluid">
+        <button pButton type="submit" label="Salvar"></button>
+      </div>
+
+      <div class="p-col-12 p-md-2 p-fluid">
+        <button pButton type="button" label="Novo" class="ui-button-info"></button>
+      </div>
+
+    </div>
+
+  </form>
+</div>
