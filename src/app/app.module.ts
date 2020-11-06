@@ -13,6 +13,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
 import { ChipsModule } from 'primeng/chips';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { CheckboxModule } from 'primeng/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RestaurantSearchComponent } from './restaurant-search/restaurant-search.component';
 import { RestaurantStoreComponent } from './restaurant-store/restaurant-store.component';
 import { ProductSearchComponent } from './product-search/product-search.component';
+import { ProductStoreComponent } from './product-store/product-store.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { ProductSearchComponent } from './product-search/product-search.componen
     RestaurantSearchComponent,
     RestaurantStoreComponent,
     ProductSearchComponent,
+    ProductStoreComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,8 @@ import { ProductSearchComponent } from './product-search/product-search.componen
     CalendarModule,
     ChipsModule,
     SplitButtonModule,
+    SelectButtonModule,
+    CheckboxModule,
 
     AppRoutingModule
   ],

@@ -38,3 +38,8 @@ body .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
 body .p-menu-overlay {
   position: initial;
 }
+
+body .p-selectbutton .p-button.p-highlight, body .p-selectbutton .p-button.p-highlight:hover {
+  background: #009ca3;
+  border-color: #009ca3;
+}
