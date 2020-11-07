@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form autocomplete="off">
 
     <div class="p-grid">
       <div class="p-col-12">
@@ -12,7 +12,15 @@
 
       <div class="p-col-12 p-md-4 p-fluid">
         <label>Nome</label>
-        <input pInputText type="text">
+        <input pInputText type="text" name="name" ngModel #name="ngModel" required minlength="3">
+
+        <div *ngIf="name.hasError('required') && name.dirty" class="ui-messages ui-messages-error">
+          Informe o nome do produto
+        </div>
+        <div *ngIf="name.hasError('minlength') && name.dirty" class="ui-messages ui-messages-error">
+          Mínimo de {{ name.errors.minlength.requiredLength }} caracteres. Você digitou apenas
+          {{ name.errors.minlength.actualLength }}!
+        </div>
       </div>
 
       <div class="p-col-12 p-md-4 p-fluid">
@@ -22,8 +30,8 @@
 
       <div class="p-col-12 p-md-4 p-fluid">
         <label>Preço</label>
-        <input pInputText type="text" placeholder="0,00" currencyMask
-          [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }">
+        <input pInputText type="text" placeholder="0,00" name="price" currencyMask
+          [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }" ngModel>
       </div>
 
       <div class="p-col-12 p-fluid">
