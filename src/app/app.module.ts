@@ -24,6 +24,7 @@ import { RestaurantSearchComponent } from './restaurant-search/restaurant-search
 import { RestaurantStoreComponent } from './restaurant-store/restaurant-store.component';
 import { ProductSearchComponent } from './product-search/product-search.component';
 import { ProductStoreComponent } from './product-store/product-store.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ProductStoreComponent } from './product-store/product-store.component';
     RestaurantStoreComponent,
     ProductSearchComponent,
     ProductStoreComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
