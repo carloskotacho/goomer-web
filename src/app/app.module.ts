@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { RestaurantsModule } from './restaurants/restaurants.module';
+
 import { MenubarModule } from 'primeng/menubar';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
@@ -20,8 +22,6 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { RestaurantSearchComponent } from './restaurant-search/restaurant-search.component';
-import { RestaurantStoreComponent } from './restaurant-store/restaurant-store.component';
 import { ProductSearchComponent } from './product-search/product-search.component';
 import { ProductStoreComponent } from './product-store/product-store.component';
 import { MessageComponent } from './message/message.component';
@@ -30,8 +30,6 @@ import { MessageComponent } from './message/message.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    RestaurantSearchComponent,
-    RestaurantStoreComponent,
     ProductSearchComponent,
     ProductStoreComponent,
     MessageComponent,
@@ -40,6 +38,8 @@ import { MessageComponent } from './message/message.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+
+    RestaurantsModule,
 
     MenubarModule,
     CardModule,
