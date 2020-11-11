@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { RestaurantsModule } from './restaurants/restaurants.module';
+import { ProductsModule } from './products/products.module';
 
 import { MenubarModule } from 'primeng/menubar';
 import { CardModule } from 'primeng/card';
@@ -15,23 +16,16 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
 import { ChipsModule } from 'primeng/chips';
 import { SplitButtonModule } from 'primeng/splitbutton';
-import { SelectButtonModule } from 'primeng/selectbutton';
-import { CheckboxModule } from 'primeng/checkbox';
-import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ProductsSearchComponent } from './products-search/products-search.component';
-import { ProductStoreComponent } from './product-store/product-store.component';
 import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ProductsSearchComponent,
-    ProductStoreComponent,
     MessageComponent,
   ],
   imports: [
@@ -40,6 +34,7 @@ import { MessageComponent } from './message/message.component';
     FormsModule,
 
     RestaurantsModule,
+    ProductsModule,
 
     MenubarModule,
     CardModule,
@@ -51,9 +46,6 @@ import { MessageComponent } from './message/message.component';
     CalendarModule,
     ChipsModule,
     SplitButtonModule,
-    SelectButtonModule,
-    CheckboxModule,
-    CurrencyMaskModule,
 
     AppRoutingModule
   ],
