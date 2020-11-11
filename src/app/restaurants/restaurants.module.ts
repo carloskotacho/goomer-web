@@ -11,12 +11,12 @@ import { ChipsModule } from 'primeng/chips';
 import { SplitButtonModule } from 'primeng/splitbutton';
 
 import { RestaurantStoreComponent } from './restaurant-store/restaurant-store.component';
-import { RestaurantSearchComponent } from './restaurant-search/restaurant-search.component';
+import { RestaurantsSearchComponent } from './restaurants-search/restaurants-search.component';
 
 @NgModule({
   declarations: [
     RestaurantStoreComponent,
-    RestaurantSearchComponent,
+    RestaurantsSearchComponent,
   ],
   imports: [
     CommonModule,
@@ -32,7 +32,7 @@ import { RestaurantSearchComponent } from './restaurant-search/restaurant-search
   ],
   exports: [
     RestaurantStoreComponent,
-    RestaurantSearchComponent,
+    RestaurantsSearchComponent,
   ]
 })
 export class RestaurantsModule { }

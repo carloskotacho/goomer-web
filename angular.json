@@ -126,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "goomer-web"
+  "defaultProject": "goomer-web",
+  "cli": {
+    "analytics": false
+  }
 }
