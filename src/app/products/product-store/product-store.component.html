@@ -14,20 +14,20 @@
         <label>Nome</label>
         <input pInputText type="text" name="name" ngModel #name="ngModel" required minlength="3">
 
-        <!--app-message [control]="name" error="required" text="Informe o nome do produto"></app-message>
+        <app-message [control]="name" error="required" text="Informe o nome do produto"></app-message>
         <app-message [control]="name" error="minlength"
           text="Mínimo de {{ name.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ name.errors?.minlength?.actualLength }}!">
-        </app-message-->
+        </app-message>
       </div>
 
       <div class="p-col-12 p-md-4 p-fluid">
         <label>Categoria</label>
         <input pInputText type="text" name="category" ngModel #category="ngModel" required minlength="5">
 
-        <!--app-message [control]="category" error="required" text="Informe o nome da categoria"></app-message>
+        <app-message [control]="category" error="required" text="Informe o nome da categoria"></app-message>
         <app-message [control]="category" error="minlength"
           text="Mínimo de {{ category.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ category.errors?.minlength?.actualLength }}!">
-        </app-message-->
+        </app-message>
       </div>
 
       <div class="p-col-12 p-md-4 p-fluid">
@@ -36,10 +36,10 @@
           [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }" ngModel #price="ngModel"
           required minlength="1">
 
-        <!--app-message [control]="price" error="required" text="Informe o preço do produto"></app-message>
+        <app-message [control]="price" error="required" text="Informe o preço do produto"></app-message>
         <app-message [control]="price" error="minlength"
           text="Mínimo de {{ price.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ price.errors?.minlength?.actualLength }}!">
-        </app-message-->
+        </app-message>
       </div>
 
       <div class="p-col-12 p-fluid">

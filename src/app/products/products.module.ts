@@ -14,6 +14,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 
+import { SharedModule } from './../shared/shared.module';
 import { ProductStoreComponent } from './product-store/product-store.component';
 import { ProductsSearchComponent } from './products-search/products-search.component';
 
@@ -37,6 +38,8 @@ import { ProductsSearchComponent } from './products-search/products-search.compo
     SelectButtonModule,
     CheckboxModule,
     CurrencyMaskModule,
+
+    SharedModule,
   ],
   exports: [
     ProductStoreComponent,

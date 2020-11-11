@@ -10,6 +10,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { ChipsModule } from 'primeng/chips';
 import { SplitButtonModule } from 'primeng/splitbutton';
 
+import { SharedModule } from './../shared/shared.module';
 import { RestaurantStoreComponent } from './restaurant-store/restaurant-store.component';
 import { RestaurantsSearchComponent } from './restaurants-search/restaurants-search.component';
 
@@ -28,7 +29,9 @@ import { RestaurantsSearchComponent } from './restaurants-search/restaurants-sea
     TooltipModule,
     CalendarModule,
     ChipsModule,
-    SplitButtonModule
+    SplitButtonModule,
+
+    SharedModule,
   ],
   exports: [
     RestaurantStoreComponent,
