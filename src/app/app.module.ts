@@ -22,7 +22,7 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ProductSearchComponent } from './product-search/product-search.component';
+import { ProductsSearchComponent } from './products-search/products-search.component';
 import { ProductStoreComponent } from './product-store/product-store.component';
 import { MessageComponent } from './message/message.component';
 
@@ -30,7 +30,7 @@ import { MessageComponent } from './message/message.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    ProductSearchComponent,
+    ProductsSearchComponent,
     ProductStoreComponent,
     MessageComponent,
   ],

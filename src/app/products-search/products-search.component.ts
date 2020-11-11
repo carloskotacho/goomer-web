@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-product-search',
-  templateUrl: './product-search.component.html',
-  styleUrls: ['./product-search.component.css']
+  selector: 'app-products-search',
+  templateUrl: './products-search.component.html',
+  styleUrls: ['./products-search.component.css']
 })
-export class ProductSearchComponent {
+export class ProductsSearchComponent {
 
   products = [
     {
