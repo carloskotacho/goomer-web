@@ -14,20 +14,20 @@
         <label>Nome</label>
         <input pInputText type="text" name="name" ngModel #name="ngModel" required minlength="3">
 
-        <!--app-message [control]="name" error="required" text="Informe o nome do restaurante"></app-message>
+        <app-message [control]="name" error="required" text="Informe o nome do restaurante"></app-message>
         <app-message [control]="name" error="minlength"
           text="Mínimo de {{ name.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ name.errors?.minlength?.actualLength }}!">
-        </app-message-->
+        </app-message>
       </div>
 
       <div class="p-col-12 p-md-6 p-fluid">
         <label>Endereço</label>
         <input pInputText type="text" name="address" ngModel #address="ngModel" required minlength="5">
 
-        <!--app-message [control]="address" error="required" text="Informe o endereço do restaurante"></app-message>
+        <app-message [control]="address" error="required" text="Informe o endereço do restaurante"></app-message>
         <app-message [control]="address" error="minlength"
           text="Mínimo de {{ address.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ address.errors?.minlength?.actualLength }}!">
-        </app-message-->
+        </app-message>
       </div>
 
       <div class="p-col-12">
