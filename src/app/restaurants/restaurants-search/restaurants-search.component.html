@@ -28,8 +28,13 @@
           <div class="table-header">
             Restaurantes
             <span class="p-input-icon-left">
-              <i class="pi pi-search"></i>
-              <input pInputText type="text" placeholder="Pesquisar" />
+
+              <form autocomplete="off" (ngSubmit)="index()">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" name="search" [(ngModel)]="filter.search" placeholder="Pesquisar" />
+                <button pButton type="submit" label="Pesquisar"></button>
+              </form>
+
             </span>
           </div>
         </ng-template>
