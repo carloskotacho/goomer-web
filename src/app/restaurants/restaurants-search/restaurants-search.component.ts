@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RestaurantService } from '../restaurant.service';
+import { RestaurantFilter, RestaurantService } from '../restaurant.service';
 
 @Component({
   selector: 'app-restaurants-search',
@@ -8,6 +8,7 @@ import { RestaurantService } from '../restaurant.service';
 })
 export class RestaurantsSearchComponent implements OnInit {
 
+  filter = new RestaurantFilter();
   restaurants = [];
 
   constructor(private restaurantService: RestaurantService) { }
@@ -16,8 +17,10 @@ export class RestaurantsSearchComponent implements OnInit {
     this.index();
   }
 
-  index() {
-    this.restaurantService.index()
+  index(search = '') {
+    this.filter.search = search;
+
+    this.restaurantService.index(this.filter)
       .then(restaurants => this.restaurants = restaurants);
   }
 }
