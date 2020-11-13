@@ -20,7 +20,7 @@ export class RestaurantService {
     let params = new HttpParams();
 
     if (filter.search) {
-      params = params.set('name', filter.search);
+      params = params.set('search', filter.search);
     }
 
     return this.http.get(`${this.restaurantsUrl}/v1`, { params })
