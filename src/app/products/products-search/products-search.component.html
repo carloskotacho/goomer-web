@@ -24,6 +24,11 @@
   <div class="p-grid">
     <div class="p-col-12">
       <p-table [value]="products" [paginator]="true" [rows]="5" [responsive]="true">
+
+        <ng-template pTemplate="emptymessage">
+          Nenhum produto encontrado
+        </ng-template>
+
         <ng-template pTemplate="caption">
           <div class="table-header">
             Produtos
