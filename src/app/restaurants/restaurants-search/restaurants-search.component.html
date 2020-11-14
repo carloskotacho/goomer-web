@@ -31,7 +31,8 @@
             <span class="p-input-icon-left">
 
               <form autocomplete="off" (ngSubmit)="index()">
-                <input pInputText type="text" name="search" [(ngModel)]="filter.search" placeholder="Pesquisar" />
+                <input pInputText type="text" name="search" [(ngModel)]="filter.search" pTooltip="Nome"
+                  tooltipPosition="top" placeholder="Pesquisar" />
                 <button pButton type="submit" icon="pi pi-search"></button>
               </form>
 

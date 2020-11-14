@@ -20,11 +20,7 @@ export class ProductService {
     let params = new HttpParams();
 
     if (filter.search) {
-      params = params.set('name', filter.search);
-    }
-
-    if (filter.search) {
-      params = params.set('category', filter.search);
+      params = params.set('search', filter.search);
     }
 
     return this.http.get(`${this.productsUrl}/v1`, { params })

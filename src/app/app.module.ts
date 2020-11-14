@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { RestaurantService } from './restaurants/restaurant.service';
+import { ProductService } from './products/product.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { RestaurantService } from './restaurants/restaurant.service';
 
     AppRoutingModule
   ],
-  providers: [RestaurantService],
+  providers: [RestaurantService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
