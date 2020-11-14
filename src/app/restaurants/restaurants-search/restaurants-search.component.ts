@@ -17,9 +17,7 @@ export class RestaurantsSearchComponent implements OnInit {
     this.index();
   }
 
-  index(search = '') {
-    this.filter.search = search;
-
+  index() {
     this.restaurantService.index(this.filter)
       .then(restaurants => this.restaurants = restaurants);
   }
