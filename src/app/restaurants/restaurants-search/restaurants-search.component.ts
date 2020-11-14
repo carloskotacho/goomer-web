@@ -8,13 +8,20 @@ import { RestaurantFilter, RestaurantService } from '../restaurant.service';
 })
 export class RestaurantsSearchComponent implements OnInit {
 
+  loading: boolean;
+
   filter = new RestaurantFilter();
   restaurants = [];
 
   constructor(private restaurantService: RestaurantService) { }
 
   ngOnInit() {
-    this.index();
+
+    this.loading = true;
+    setTimeout(() => {
+      this.index();
+      this.loading = false;
+    }, 1000);
   }
 
   index() {
