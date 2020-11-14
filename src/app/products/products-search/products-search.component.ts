@@ -8,13 +8,21 @@ import { ProductFilter, ProductService } from './../product.service';
 })
 export class ProductsSearchComponent implements OnInit {
 
+  loading: boolean;
+
   filter = new ProductFilter();
   products = [];
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this.index();
+
+    this.loading = true;
+    setTimeout(() => {
+      this.index();
+      this.loading = false;
+    }, 1000);
+
   }
 
   index() {
