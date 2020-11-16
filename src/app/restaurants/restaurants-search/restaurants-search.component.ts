@@ -28,9 +28,6 @@ export class RestaurantsSearchComponent implements OnInit {
       .then(response => {
         this.totalElements = response['count'];
         this.restaurants = response['rows'];
-
-        console.log('Total Elements: ', this.totalElements);
-        console.log('Restaurants: ', this.restaurants);
       });
   }
 

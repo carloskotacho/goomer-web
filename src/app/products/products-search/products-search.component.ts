@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LazyLoadEvent } from 'primeng/api';
 import { ProductFilter, ProductService } from './../product.service';
 
 @Component({
@@ -10,23 +11,35 @@ export class ProductsSearchComponent implements OnInit {
 
   loading: boolean;
 
+  totalElements = 0;
   filter = new ProductFilter();
   products = [];
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
-
     this.loading = true;
-    setTimeout(() => {
-      this.index();
-      this.loading = false;
-    }, 1000);
-
   }
 
-  index() {
+  index(page = 1) {
+    this.filter.page = page;
+
     this.productService.index(this.filter)
-      .then(products => this.products = products);
+      .then(response => {
+        this.totalElements = response['count'];
+        this.products = response['rows'];
+
+        console.log('Total Elements: ', this.totalElements);
+        console.log('Restaurants: ', this.products);
+      });
+  }
+
+  nextPage(event: LazyLoadEvent) {
+    const page = (event.first / event.rows) + 1;
+
+    setTimeout(() => {
+      this.index(page);
+      this.loading = false;
+    }, 1000);
   }
 }
