@@ -59,13 +59,13 @@
 
         <ng-template pTemplate="body" let-products>
           <tr>
-            <td>{{ products.restaurant }}</td>
+            <td>{{ products.restaurant.name }}</td>
             <td>{{ products.name }}</td>
-            <td>{{ products.price }}</td>
+            <td>{{ products.price | currency:'BRL':true:'1.2-2' }}</td>
             <td>{{ products.category }}</td>
             <td>
               <span *ngIf="products.description == null; else elseDescription" class="product-badge">Não</span>
-              <ng-template #elseDescription>{{ products.description }}</ng-template>
+              <ng-template #elseDescription>{{ products.description | slice:0:25 }}...</ng-template>
             </td>
             <td>
               <span *ngIf="products.promotion == null; else elsePromotion" class="product-badge">Não</span>
