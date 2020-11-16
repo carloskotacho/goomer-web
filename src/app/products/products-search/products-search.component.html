@@ -23,7 +23,8 @@
 
   <div class="p-grid">
     <div class="p-col-12">
-      <p-table [value]="products" [loading]="loading" [paginator]="true" [rows]="5" [responsive]="true">
+      <p-table [value]="products" [loading]="loading" [paginator]="true" [rows]="filter.itemsByPage" [lazy]="true"
+        [totalRecords]="totalElements" (onLazyLoad)="nextPage($event)" [responsive]="true">
 
         <ng-template pTemplate="emptymessage">
           Nenhum produto encontrado
