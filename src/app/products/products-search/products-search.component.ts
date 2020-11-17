@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { LazyLoadEvent } from 'primeng/api';
+import { Table } from 'primeng/table';
+
 import { ProductFilter, ProductService } from './../product.service';
 
 @Component({
@@ -14,6 +17,7 @@ export class ProductsSearchComponent implements OnInit {
   totalElements = 0;
   filter = new ProductFilter();
   products = [];
+  @ViewChild('table', {static: true}) grid: Table;
 
   constructor(private productService: ProductService) { }
 
@@ -28,6 +32,13 @@ export class ProductsSearchComponent implements OnInit {
       .then(response => {
         this.totalElements = response['count'];
         this.products = response['rows'];
+      });
+  }
+
+  delete(product: any) {
+    this.productService.delete(product.id)
+      .then(() => {
+        this.grid.clear();
       });
   }
 
