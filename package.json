@@ -23,6 +23,7 @@
     "@angular/router": "~9.1.12",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "ng2-currency-mask": "^9.0.2",
+    "ng2-toasty": "^4.0.3",
     "primeflex": "^2.0.0",
     "primeicons": "^4.0.0",
     "primeng": "^10.0.3",
