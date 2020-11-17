@@ -1,13 +1,20 @@
 <app-navbar></app-navbar>
-<app-products-search></app-products-search>
+<app-restaurants-search></app-restaurants-search>
 
 <ng2-toasty></ng2-toasty>
+
+<p-confirmDialog header="Confirmação" icon="fa fa-question-circle" #confirmation>
+  <p-footer>
+    <button type="button" pButton icon="fas fa-check" label="Sim" (click)="confirmation.accept()"></button>
+    <button type="button" pButton icon="fas fa-times" label="Não" (click)="confirmation.reject()"></button>
+  </p-footer>
+</p-confirmDialog>
 
 <!--
   ## Restaurants ##
   <app-restaurant-store></app-restaurant-store>
-  <app-restaurants-search></app-restaurants-search>
 
   ## Products ##
   <app-product-store></app-product-store>
+  <app-products-search></app-products-search>
 -->
