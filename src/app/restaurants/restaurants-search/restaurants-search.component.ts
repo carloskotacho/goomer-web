@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
+import { Table } from 'primeng/table';
 import { RestaurantFilter, RestaurantService } from '../restaurant.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class RestaurantsSearchComponent implements OnInit {
   totalElements = 0;
   filter = new RestaurantFilter();
   restaurants = [];
+  @ViewChild('table', {static: true}) grid: Table;
 
   constructor(private restaurantService: RestaurantService) { }
 
@@ -28,6 +30,13 @@ export class RestaurantsSearchComponent implements OnInit {
       .then(response => {
         this.totalElements = response['count'];
         this.restaurants = response['rows'];
+      });
+  }
+
+  delete(restaurant: any) {
+    this.restaurantService.delete(restaurant.id)
+      .then(() => {
+        this.grid.clear();
       });
   }
 

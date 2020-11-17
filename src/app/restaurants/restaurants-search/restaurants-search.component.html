@@ -24,7 +24,7 @@
   <div class="p-grid">
     <div class="p-col-12">
       <p-table [value]="restaurants" [loading]="loading" [paginator]="true" [rows]="filter.itemsByPage" [lazy]="true"
-        [totalRecords]="totalElements" (onLazyLoad)="nextPage($event)" [responsive]="true">
+        [totalRecords]="totalElements" (onLazyLoad)="nextPage($event)" [responsive]="true" #table>
 
         <ng-template pTemplate="emptymessage">
           Nenhum restaurante encontrado
@@ -71,7 +71,8 @@
             <td>{{ restaurant.schedules }}</td>
             <td class="col-actions">
               <button pButton icon="fas fa-edit" pTooltip="Editar" tooltipPosition="top"></button>
-              <button pButton icon="fas fa-trash-alt" pTooltip="Excluir" tooltipPosition="top"></button>
+              <button pButton icon="fas fa-trash-alt" (click)="delete(restaurant)" pTooltip="Excluir"
+                tooltipPosition="top"></button>
             </td>
           </tr>
         </ng-template>

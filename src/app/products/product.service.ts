@@ -37,4 +37,10 @@ export class ProductService {
       .toPromise()
       .then(response => response);
   }
+
+  delete(id: number): Promise<void> {
+    return this.http.delete(`${this.productsUrl}/${id}/v1`)
+      .toPromise()
+      .then(() => null);
+  }
 }

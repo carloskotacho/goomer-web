@@ -37,4 +37,10 @@ export class RestaurantService {
       .toPromise()
       .then(response => response);
   }
+
+  delete(id: number): Promise<void> {
+    return this.http.delete(`${this.restaurantsUrl}/${id}/v1`)
+      .toPromise()
+      .then(() => null);
+  }
 }
