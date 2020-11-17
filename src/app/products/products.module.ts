@@ -13,7 +13,6 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
-import { ToastyModule } from 'ng2-toasty';
 
 import { SharedModule } from './../shared/shared.module';
 import { ProductStoreComponent } from './product-store/product-store.component';
@@ -40,14 +39,11 @@ import { ProductsSearchComponent } from './products-search/products-search.compo
     CheckboxModule,
     CurrencyMaskModule,
 
-    ToastyModule.forRoot(),
-
     SharedModule,
   ],
   exports: [
     ProductStoreComponent,
-    ProductsSearchComponent,
-    ToastyModule,
+    ProductsSearchComponent
   ]
 })
 export class ProductsModule { }
