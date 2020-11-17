@@ -49,6 +49,7 @@
         <ng-template pTemplate="header">
           <tr>
             <th>Nome</th>
+            <th>Imagem</th>
             <th>Endereço</th>
             <th pTooltip="Horário de Funcionamento" tooltipPosition="top">H. Funcionamento</th>
             <th style="width:150px"></th>
@@ -58,6 +59,12 @@
         <ng-template pTemplate="body" let-restaurant>
           <tr>
             <td>{{ restaurant.name }}</td>
+            <td>
+              <div *ngIf="restaurant.avatar; else elseBlock">
+                <img class="p-shadow-4" src="{{ restaurant.avatar.url }}" alt="Imagem do restaurante" width="100" />
+              </div>
+              <ng-template #elseBlock>Sem imagem</ng-template>
+            </td>
             <td>{{ restaurant.address }}</td>
             <td>{{ restaurant.schedules }}</td>
             <td class="col-actions">
