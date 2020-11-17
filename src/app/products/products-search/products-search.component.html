@@ -49,6 +49,7 @@
           <tr>
             <th>Restaurante</th>
             <th>Nome</th>
+            <th>Imagem</th>
             <th>Preço</th>
             <th>Categoria</th>
             <th>Descrição</th>
@@ -57,19 +58,27 @@
           </tr>
         </ng-template>
 
-        <ng-template pTemplate="body" let-products>
+        <ng-template pTemplate="body" let-product>
           <tr>
-            <td>{{ products.restaurant.name }}</td>
-            <td>{{ products.name }}</td>
-            <td>{{ products.price | currency:'BRL':true:'1.2-2' }}</td>
-            <td>{{ products.category }}</td>
+            <td>{{ product.restaurant.name }}</td>
+            <td>{{ product.name }}</td>
             <td>
-              <span *ngIf="products.description == null; else elseDescription" class="product-badge">Não</span>
-              <ng-template #elseDescription>{{ products.description | slice:0:25 }}...</ng-template>
+              <div *ngIf="product.avatar; else elseBlock">
+                <img class="p-shadow-4" src="{{ product.avatar.url }}" alt="Imagem do produto" width="100">
+              </div>
+              <ng-template #elseBlock>
+                <span class="product-badge">Não</span>
+              </ng-template>
+            </td>
+            <td>{{ product.price | currency:'BRL':true:'1.2-2' }}</td>
+            <td>{{ product.category }}</td>
+            <td>
+              <span *ngIf="product.description == null; else elseDescription" class="product-badge">Não</span>
+              <ng-template #elseDescription>{{ product.description | slice:0:25 }}...</ng-template>
             </td>
             <td>
-              <span *ngIf="products.promotion == null; else elsePromotion" class="product-badge">Não</span>
-              <ng-template #elsePromotion>{{ products.promotion }}</ng-template>
+              <span *ngIf="product.promotion == null; else elsePromotion" class="product-badge">Não</span>
+              <ng-template #elsePromotion>{{ product.promotion }}</ng-template>
             </td>
             <td class="col-actions">
               <button pButton icon="fas fa-edit" pTooltip="Editar" tooltipPosition="top"></button>

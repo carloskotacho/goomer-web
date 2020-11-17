@@ -5,6 +5,17 @@
   color: #6c757d;
 }
 
+.product-badge {
+  background: #ffcdd2;
+  color: #c63737;
+  border-radius: 2px;
+  padding: .25em .5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .3px;
+}
+
 /* Start - card */
 .card {
   min-height: 6rem;
