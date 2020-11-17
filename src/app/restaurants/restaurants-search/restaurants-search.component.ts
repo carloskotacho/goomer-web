@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { LazyLoadEvent } from 'primeng/api';
+import { ToastyService, ToastyConfig } from 'ng2-toasty';
 import { Table } from 'primeng/table';
+
 import { RestaurantFilter, RestaurantService } from '../restaurant.service';
 
 @Component({
@@ -17,10 +20,15 @@ export class RestaurantsSearchComponent implements OnInit {
   restaurants = [];
   @ViewChild('table', {static: true}) grid: Table;
 
-  constructor(private restaurantService: RestaurantService) { }
+  constructor(
+    private restaurantService: RestaurantService,
+    private toasty: ToastyService,
+    private config: ToastyConfig
+    ) { }
 
-  ngOnInit() {
-    this.loading = true;
+    ngOnInit() {
+      this.loading = true;
+      this.config.theme = 'bootstrap';
   }
 
   index(page = 1) {
@@ -34,10 +42,13 @@ export class RestaurantsSearchComponent implements OnInit {
   }
 
   delete(restaurant: any) {
+
     this.restaurantService.delete(restaurant.id)
-      .then(() => {
-        this.grid.clear();
-      });
+    .then(() => {
+      this.grid.clear();
+
+      this.toasty.success('Restaurante excluído com sucesso!');
+    });
   }
 
   nextPage(event: LazyLoadEvent) {
