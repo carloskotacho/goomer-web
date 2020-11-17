@@ -59,11 +59,13 @@
         <ng-template pTemplate="body" let-restaurant>
           <tr>
             <td>{{ restaurant.name }}</td>
-            <td>
+            <td class="center">
               <div *ngIf="restaurant.avatar; else elseBlock">
                 <img class="p-shadow-4" src="{{ restaurant.avatar.url }}" alt="Imagem do restaurante" width="100" />
               </div>
-              <ng-template #elseBlock>Sem imagem</ng-template>
+              <ng-template #elseBlock>
+                <span class="product-badge">Não</span>
+              </ng-template>
             </td>
             <td>{{ restaurant.address }}</td>
             <td>{{ restaurant.schedules }}</td>

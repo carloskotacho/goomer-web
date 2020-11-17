@@ -28,9 +28,6 @@ export class ProductsSearchComponent implements OnInit {
       .then(response => {
         this.totalElements = response['count'];
         this.products = response['rows'];
-
-        console.log('Total Elements: ', this.totalElements);
-        console.log('Restaurants: ', this.products);
       });
   }
 
