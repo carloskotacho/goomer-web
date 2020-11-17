@@ -1,5 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 
 import { MenubarModule } from 'primeng/menubar';
 import { ConfirmationService } from 'primeng/api';
@@ -10,6 +13,8 @@ import { ErrorHandlerService } from './error-handler.service';
 import { RestaurantService } from './../restaurants/restaurant.service';
 import { ProductService } from './../products/product.service';
 import { NavbarComponent } from './navbar/navbar.component';
+
+registerLocaleData(localePt);
 
 @NgModule({
   imports: [
@@ -32,7 +37,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     ProductService,
     ErrorHandlerService,
 
-    ConfirmationService
+    ConfirmationService,
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
   ]
 })
 export class CoreModule { }
