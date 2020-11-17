@@ -40,7 +40,7 @@ export class RestaurantsSearchComponent implements OnInit {
         this.totalElements = response['count'];
         this.restaurants = response['rows'];
       })
-      .catch(erro => this.errorHandler.handle(erro));
+      .catch(err => this.errorHandler.handle(err));
   }
 
   confirmDelete(restaurant: any) {
@@ -60,7 +60,7 @@ export class RestaurantsSearchComponent implements OnInit {
 
       this.toasty.success('Restaurante excluído com sucesso!');
     })
-    .catch(erro => this.errorHandler.handle(erro));
+    .catch(err => this.errorHandler.handle(err.error.error));
   }
 
   nextPage(event: LazyLoadEvent) {

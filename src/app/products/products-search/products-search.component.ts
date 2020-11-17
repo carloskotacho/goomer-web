@@ -40,7 +40,7 @@ export class ProductsSearchComponent implements OnInit {
         this.totalElements = response['count'];
         this.products = response['rows'];
       })
-      .catch(erro => this.errorHandler.handle(erro));
+      .catch(err => this.errorHandler.handle(err));
   }
 
   confirmDelete(product: any) {
@@ -59,7 +59,7 @@ export class ProductsSearchComponent implements OnInit {
 
         this.toasty.success('Produto excluído com sucesso!');
       })
-      .catch(erro => this.errorHandler.handle(erro));
+      .catch(err => this.errorHandler.handle(err.error.error));
   }
 
   nextPage(event: LazyLoadEvent) {
