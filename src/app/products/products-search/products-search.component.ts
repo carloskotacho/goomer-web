@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { LazyLoadEvent, ConfirmationService } from 'primeng/api';
-import { ToastyService, ToastyConfig } from 'ng2-toasty';
+import { ToastyService } from 'ng2-toasty';
 import { Table } from 'primeng/table';
 
+import { ErrorHandlerService } from './../../core/error-handler.service';
 import { ProductFilter, ProductService } from './../product.service';
 
 @Component({
@@ -22,14 +23,13 @@ export class ProductsSearchComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
+    private errorHandler: ErrorHandlerService,
     private toasty: ToastyService,
-    private config: ToastyConfig,
     private confirmation: ConfirmationService
   ) { }
 
   ngOnInit() {
     this.loading = true;
-    this.config.theme = 'bootstrap';
   }
 
   index(page = 1) {
@@ -39,7 +39,8 @@ export class ProductsSearchComponent implements OnInit {
       .then(response => {
         this.totalElements = response['count'];
         this.products = response['rows'];
-      });
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
   confirmDelete(product: any) {
@@ -57,7 +58,8 @@ export class ProductsSearchComponent implements OnInit {
         this.grid.clear();
 
         this.toasty.success('Produto excluído com sucesso!');
-      });
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
   nextPage(event: LazyLoadEvent) {

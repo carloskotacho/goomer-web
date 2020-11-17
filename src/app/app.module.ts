@@ -8,13 +8,10 @@ import { ProductsModule } from './products/products.module';
 
 // import { CardModule } from 'primeng/card';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { RestaurantService } from './restaurants/restaurant.service';
-import { ProductService } from './products/product.service';
 
 @NgModule({
   declarations: [
@@ -34,11 +31,7 @@ import { ProductService } from './products/product.service';
 
     AppRoutingModule
   ],
-  providers: [
-    RestaurantService,
-    ProductService,
-    ConfirmationService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
