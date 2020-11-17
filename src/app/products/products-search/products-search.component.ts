@@ -46,7 +46,7 @@ export class ProductsSearchComponent implements OnInit {
       .then(() => {
         this.grid.clear();
 
-        this.toasty.success('Restaurante excluído com sucesso!');
+        this.toasty.success('Produto excluído com sucesso!');
       });
   }
 
