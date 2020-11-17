@@ -7,6 +7,8 @@ import { RestaurantsModule } from './restaurants/restaurants.module';
 import { ProductsModule } from './products/products.module';
 
 // import { CardModule } from 'primeng/card';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,11 +29,16 @@ import { ProductService } from './products/product.service';
     RestaurantsModule,
     ProductsModule,
 
+    ConfirmDialogModule,
     // CardModule,
 
     AppRoutingModule
   ],
-  providers: [RestaurantService, ProductService],
+  providers: [
+    RestaurantService,
+    ProductService,
+    ConfirmationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

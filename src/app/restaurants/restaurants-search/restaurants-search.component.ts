@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { LazyLoadEvent } from 'primeng/api';
+import { LazyLoadEvent, ConfirmationService } from 'primeng/api';
 import { ToastyService, ToastyConfig } from 'ng2-toasty';
 import { Table } from 'primeng/table';
 
@@ -23,7 +23,8 @@ export class RestaurantsSearchComponent implements OnInit {
   constructor(
     private restaurantService: RestaurantService,
     private toasty: ToastyService,
-    private config: ToastyConfig
+    private config: ToastyConfig,
+    private confirmation: ConfirmationService
     ) { }
 
     ngOnInit() {
@@ -39,6 +40,15 @@ export class RestaurantsSearchComponent implements OnInit {
         this.totalElements = response['count'];
         this.restaurants = response['rows'];
       });
+  }
+
+  confirmDelete(restaurant: any) {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.delete(restaurant);
+      }
+    });
   }
 
   delete(restaurant: any) {

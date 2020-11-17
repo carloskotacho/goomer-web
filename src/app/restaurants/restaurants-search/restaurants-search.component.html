@@ -71,7 +71,7 @@
             <td>{{ restaurant.schedules }}</td>
             <td class="col-actions">
               <button pButton icon="fas fa-edit" pTooltip="Editar" tooltipPosition="top"></button>
-              <button pButton icon="fas fa-trash-alt" (click)="delete(restaurant)" pTooltip="Excluir"
+              <button pButton icon="fas fa-trash-alt" (click)="confirmDelete(restaurant)" pTooltip="Excluir"
                 tooltipPosition="top"></button>
             </td>
           </tr>
