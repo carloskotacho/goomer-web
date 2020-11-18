@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, NgForm } from '@angular/forms';
+
+import { ToastyService } from 'ng2-toasty';
+
+import { Restaurant } from 'src/app/core/model';
+import { ErrorHandlerService } from './../../core/error-handler.service';
+import { RestaurantService } from '../restaurant.service';
 
 @Component({
   selector: 'app-restaurant-store',
@@ -7,15 +14,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantStoreComponent implements OnInit {
 
-  workingDaysStartHours: Date;
-  workingDaysEndHours: Date;
+  restaurant = new Restaurant();
 
-  weekendsStartHours: Date;
-  weekendsEndHours: Date;
-
-  constructor() { }
+  constructor(
+    private restaurantService: RestaurantService,
+    private errorHandler: ErrorHandlerService,
+    private toasty: ToastyService,
+  ) { }
 
   ngOnInit(): void {
   }
 
+  save(form: NgForm) {
+    this.restaurantService.store(this.restaurant)
+      .then(() => {
+        this.toasty.success('Restaurante adicionado com sucesso!');
+
+        form.reset();
+        this.restaurant = new Restaurant();
+      })
+      .catch(err => this.errorHandler.handle(err.error.error));
+  }
 }

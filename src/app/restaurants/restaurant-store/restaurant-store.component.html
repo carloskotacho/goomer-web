@@ -1,5 +1,5 @@
 <div class="container">
-  <form #f="ngForm" autocomplete="off">
+  <form #f="ngForm" autocomplete="off" (ngSubmit)="save(f)">
 
     <div class="p-grid">
       <div class="p-col-12">
@@ -12,7 +12,7 @@
 
       <div class="p-col-12 p-md-6 p-fluid">
         <label>Nome</label>
-        <input pInputText type="text" name="name" ngModel #name="ngModel" required minlength="3">
+        <input pInputText type="text" name="name" [(ngModel)]="restaurant.name" #name="ngModel" required minlength="3">
 
         <app-message [control]="name" error="required" text="Informe o nome do restaurante"></app-message>
         <app-message [control]="name" error="minlength"
@@ -22,7 +22,8 @@
 
       <div class="p-col-12 p-md-6 p-fluid">
         <label>Endereço</label>
-        <input pInputText type="text" name="address" ngModel #address="ngModel" required minlength="5">
+        <input pInputText type="text" name="address" [(ngModel)]="restaurant.address" #address="ngModel" required
+          minlength="5">
 
         <app-message [control]="address" error="required" text="Informe o endereço do restaurante"></app-message>
         <app-message [control]="address" error="minlength"
@@ -40,14 +41,14 @@
         </div>
 
         <div class="p-col-12 p-md-6">
-          <p-calendar [(ngModel)]="workingDaysStartHours" [timeOnly]="true" inputId="timeonly" placeholder="Abertura"
-            name="workingDaysStartHours" required>
+          <p-calendar [timeOnly]="true" inputId="timeonly" placeholder="Abertura" name="week_opening_time"
+            [(ngModel)]="restaurant.week_opening_time" #week_opening_time="ngModel" required>
           </p-calendar>
         </div>
 
         <div class="p-col-12 p-md-6">
-          <p-calendar [(ngModel)]="workingDaysEndHours" [timeOnly]="true" inputId="timeonly" placeholder="Fechamento"
-            name="workingDaysEndHours" required>
+          <p-calendar [timeOnly]="true" inputId="timeonly" placeholder="Fechamento" name="week_closing_time"
+            [(ngModel)]="restaurant.week_closing_time" #week_closing_time="ngModel" required>
           </p-calendar>
         </div>
 
@@ -56,14 +57,14 @@
         </div>
 
         <div class="p-col-12 p-md-6">
-          <p-calendar [(ngModel)]="weekendsStartHours" [timeOnly]="true" inputId="timeonly" placeholder="Abertura"
-            name="weekendsStartHours" required>
+          <p-calendar [timeOnly]="true" inputId="timeonly" placeholder="Abertura" name="weekend_opening_time"
+            [(ngModel)]="restaurant.weekend_opening_time" #weekend_opening_time="ngModel" required>
           </p-calendar>
         </div>
 
         <div class="p-col-12 p-md-6">
-          <p-calendar [(ngModel)]="weekendsEndHours" [timeOnly]="true" inputId="timeonly" placeholder="Fechamento"
-            name="weekendsEndHours" required>
+          <p-calendar [timeOnly]="true" inputId="timeonly" placeholder="Fechamento" name="weekend_closing_time"
+            [(ngModel)]="restaurant.weekend_closing_time" #weekend_closing_time="ngModel" required>
           </p-calendar>
         </div>
       </div>
