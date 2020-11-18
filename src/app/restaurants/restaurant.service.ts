@@ -2,6 +2,11 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import 'rxjs/add/operator/toPromise';
+import * as moment from 'moment';
+
+moment.locale('pt-br');
+
+import { Restaurant } from '../core/model';
 
 export class RestaurantFilter {
   search: string;
@@ -42,5 +47,20 @@ export class RestaurantService {
     return this.http.delete(`${this.restaurantsUrl}/${id}/v1`)
       .toPromise()
       .then(() => null);
+  }
+
+  store(restaurant: Restaurant): Promise<Restaurant> {
+    restaurant.week_opening_time = this.formatTime(restaurant.week_opening_time);
+    restaurant.week_closing_time = this.formatTime(restaurant.week_closing_time);
+    restaurant.weekend_opening_time = this.formatTime(restaurant.weekend_opening_time);
+    restaurant.weekend_closing_time = this.formatTime(restaurant.weekend_closing_time);
+
+    return this.http.post<Restaurant>(`${this.restaurantsUrl}/v1`, restaurant)
+      .toPromise()
+      .then(response => response);
+  }
+
+  formatTime(time: string) {
+    return moment(time).format('LT');
   }
 }
