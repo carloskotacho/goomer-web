@@ -50,61 +50,65 @@
 
       <div class="p-col-12">
         <h4>Promoção</h4>
-        <p-selectButton [options]="options" [(ngModel)]="value" name="value"></p-selectButton>
+        <p-selectButton [options]="options" [(ngModel)]="valueDefaultOption" name="valueDefaultOption" #option>
+        </p-selectButton>
       </div>
 
-      <div class="p-col-12">
-        <h4>Selecione os dias da semana</h4>
-      </div>
+      <div class="p-grid" *ngIf="option.value === 'SIM'">
 
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="monday" [(ngModel)]="selectedValues"></p-checkbox>
-        <label for="monday">Segunda</label>
-      </div>
+        <div class="p-col-12">
+          <h4>Selecione os dias da semana</h4>
+        </div>
 
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="tuesday" [(ngModel)]="selectedValues"></p-checkbox>
-        <label for="tuesday">Terça</label>
-      </div>
+        <div class="p-col-12 checkbox">
+          <p-checkbox name="groupname" value="monday" [(ngModel)]="selectedValues"></p-checkbox>
+          <label for="monday">Segunda</label>
+        </div>
 
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="wednesday" [(ngModel)]="selectedValues"></p-checkbox>
-        <label for="wednesday">Quarta</label>
-      </div>
+        <div class="p-col-12 checkbox">
+          <p-checkbox name="groupname" value="tuesday" [(ngModel)]="selectedValues"></p-checkbox>
+          <label for="tuesday">Terça</label>
+        </div>
 
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="thursday" [(ngModel)]="selectedValues"></p-checkbox>
-        <label for="thursday">Quinta</label>
-      </div>
+        <div class="p-col-12 checkbox">
+          <p-checkbox name="groupname" value="wednesday" [(ngModel)]="selectedValues"></p-checkbox>
+          <label for="wednesday">Quarta</label>
+        </div>
 
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="friday" [(ngModel)]="selectedValues"></p-checkbox>
-        <label for="friday">Sexta</label>
-      </div>
+        <div class="p-col-12 checkbox">
+          <p-checkbox name="groupname" value="thursday" [(ngModel)]="selectedValues"></p-checkbox>
+          <label for="thursday">Quinta</label>
+        </div>
 
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="saturday" [(ngModel)]="selectedValues"></p-checkbox>
-        <label for="saturday">Sábado</label>
-      </div>
+        <div class="p-col-12 checkbox">
+          <p-checkbox name="groupname" value="friday" [(ngModel)]="selectedValues"></p-checkbox>
+          <label for="friday">Sexta</label>
+        </div>
 
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="sunday" [(ngModel)]="selectedValues"></p-checkbox>
-        <label for="sunday">Domingo</label>
-      </div>
+        <div class="p-col-12 checkbox">
+          <p-checkbox name="groupname" value="saturday" [(ngModel)]="selectedValues"></p-checkbox>
+          <label for="saturday">Sábado</label>
+        </div>
 
-      <div class="p-col-12">
-        <h4>Preencha os horário</h4>
-      </div>
+        <div class="p-col-12 checkbox">
+          <p-checkbox name="groupname" value="sunday" [(ngModel)]="selectedValues"></p-checkbox>
+          <label for="sunday">Domingo</label>
+        </div>
 
-      <div class="p-col-12 p-md-6 p-fluid">
-        <p-calendar [(ngModel)]="startHours" [timeOnly]="true" inputId="timeonly" name="startHours"
-          placeholder="Início">
-        </p-calendar>
-      </div>
+        <div class="p-col-12">
+          <h4>Preencha os horário</h4>
+        </div>
 
-      <div class="p-col-12 p-md-6 p-fluid">
-        <p-calendar [(ngModel)]="endHours" [timeOnly]="true" inputId="timeonly" name="endHours" placeholder="Término">
-        </p-calendar>
+        <div class="p-col-12 p-md-6 p-fluid">
+          <p-calendar [(ngModel)]="startHours" [timeOnly]="true" inputId="timeonly" name="startHours"
+            placeholder="Início">
+          </p-calendar>
+        </div>
+
+        <div class="p-col-12 p-md-6 p-fluid">
+          <p-calendar [(ngModel)]="endHours" [timeOnly]="true" inputId="timeonly" name="endHours" placeholder="Término">
+          </p-calendar>
+        </div>
       </div>
 
       <div class="p-col-12 p-md-2 p-fluid">
