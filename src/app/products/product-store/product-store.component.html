@@ -10,7 +10,13 @@
         </div>
       </div>
 
-      <div class="p-col-12 p-md-4 p-fluid">
+      <div class="p-col-12 p-md-6 p-fluid">
+        <label>Restaurante</label>
+        <p-dropdown name="restaurant" [options]="restaurants" placeholder="Selecione" [filter]="true" ngModel required>
+        </p-dropdown>
+      </div>
+
+      <div class="p-col-12 p-md-6 p-fluid">
         <label>Nome</label>
         <input pInputText type="text" name="name" ngModel #name="ngModel" required minlength="3"
           placeholder="Marmitex, Buffet, ...">
@@ -21,7 +27,7 @@
         </app-message>
       </div>
 
-      <div class="p-col-12 p-md-4 p-fluid">
+      <div class="p-col-12 p-md-6 p-fluid">
         <label>Categoria</label>
         <input pInputText type="text" name="category" ngModel #category="ngModel" required minlength="5"
           placeholder="Doces, Sucos, ...">
@@ -32,7 +38,7 @@
         </app-message>
       </div>
 
-      <div class="p-col-12 p-md-4 p-fluid">
+      <div class="p-col-12 p-md-6 p-fluid">
         <label>Preço</label>
         <input pInputText type="text" placeholder="0,00" name="price" currencyMask
           [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }" ngModel #price="ngModel"
