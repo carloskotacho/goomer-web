@@ -43,3 +43,18 @@ body .p-selectbutton .p-button.p-highlight, body .p-selectbutton .p-button.p-hig
   background: #009ca3;
   border-color: #009ca3;
 }
+
+body .p-checkbox .p-checkbox-box.p-highlight {
+  border-color: #009ca3;
+  background: #009ca3;
+}
+
+body .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus {
+  box-shadow: 0 0 0 0.2rem #009ca3;
+  border-color: #009ca3;
+}
+
+body .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover {
+  border-color:  #009ca3;
+  background:  #009ca3;
+}

@@ -12,7 +12,8 @@
 
       <div class="p-col-12 p-md-4 p-fluid">
         <label>Nome</label>
-        <input pInputText type="text" name="name" ngModel #name="ngModel" required minlength="3">
+        <input pInputText type="text" name="name" ngModel #name="ngModel" required minlength="3"
+          placeholder="Marmitex, Buffet, ...">
 
         <app-message [control]="name" error="required" text="Informe o nome do produto"></app-message>
         <app-message [control]="name" error="minlength"
@@ -22,7 +23,8 @@
 
       <div class="p-col-12 p-md-4 p-fluid">
         <label>Categoria</label>
-        <input pInputText type="text" name="category" ngModel #category="ngModel" required minlength="5">
+        <input pInputText type="text" name="category" ngModel #category="ngModel" required minlength="5"
+          placeholder="Doces, Sucos, ...">
 
         <app-message [control]="category" error="required" text="Informe o nome da categoria"></app-message>
         <app-message [control]="category" error="minlength"
@@ -42,19 +44,40 @@
         </app-message>
       </div>
 
+      <div class="p-col-12">
+        <p>Esse produto possuirá alguma promoção?</p>
+        <p-selectButton [options]="options" [(ngModel)]="valueDefaultOption" name="valueDefaultOption" #option>
+        </p-selectButton>
+      </div>
+    </div>
+
+    <div class="p-grid" *ngIf="option.value === 'SIM'">
+
+      <div class="p-col-12">
+        <p>Preencha as informações sobre a promoção do produto, logo abaixo:</p>
+      </div>
+
+      <div class="p-col-12 p-md-4 p-fluid">
+        <label>Preço promocional</label>
+        <input pInputText type="text" placeholder="0,00" name="promotional_price" currencyMask
+          [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }" ngModel
+          #promotional_price="ngModel" required minlength="1">
+
+        <app-message [control]="promotional_price" error="required" text="Informe o preço promocional do produto">
+        </app-message>
+        <app-message [control]="promotional_price" error="minlength"
+          text="Mínimo de {{ promotional_price.errors?.minlength?.requiredLength }} caracteres. Você digitou apenas {{ promotional_price.errors?.minlength?.actualLength }}!">
+        </app-message>
+      </div>
+
       <div class="p-col-12 p-fluid">
         <label>Descrição</label>
         <textarea pInputTextarea [rows]="5" [cols]="30" autoResize="autoResize"
-          placeholder="Escreva alguma coisa..."></textarea>
+          placeholder="Escreva alguma coisa... (50% de desconto!!!)"></textarea>
       </div>
 
       <div class="p-col-12">
-        <h4>Promoção</h4>
-        <p-selectButton [options]="options" [(ngModel)]="value" name="value"></p-selectButton>
-      </div>
-
-      <div class="p-col-12">
-        <h4>Selecione os dias da semana</h4>
+        <p>Selecione os dias da semana que ocorrerá a promoção:</p>
       </div>
 
       <div class="p-col-12 checkbox">
@@ -93,7 +116,7 @@
       </div>
 
       <div class="p-col-12">
-        <h4>Preencha os horário</h4>
+        <p>Preencha os horários da promoção:</p>
       </div>
 
       <div class="p-col-12 p-md-6 p-fluid">
@@ -106,7 +129,9 @@
         <p-calendar [(ngModel)]="endHours" [timeOnly]="true" inputId="timeonly" name="endHours" placeholder="Término">
         </p-calendar>
       </div>
+    </div>
 
+    <div class="p-grid" style="margin-top: 2em;">
       <div class="p-col-12 p-md-2 p-fluid">
         <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
       </div>
@@ -114,7 +139,6 @@
       <div class="p-col-12 p-md-2 p-fluid">
         <button pButton type="button" label="Novo" class="ui-button-info"></button>
       </div>
-
     </div>
 
   </form>

@@ -12,14 +12,17 @@ export class ProductStoreComponent implements OnInit {
 
   endHours: Date;
 
-  options: SelectItem[];
-
-  value = 'yes';
-
   selectedValues: string[] = [];
 
+  options: any[];
+
+  valueDefaultOption = 'NÃO';
+
   constructor() {
-    this.options = [{label: 'Não', value: 'not'}, {label: 'Sim', value: 'yes'}];
+    this.options = [
+      { label: 'Não', value: 'NÃO' },
+      { label: 'Sim', value: 'SIM' },
+    ];
   }
 
   ngOnInit(): void {
