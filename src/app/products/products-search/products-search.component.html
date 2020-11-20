@@ -53,7 +53,7 @@
             <th>Preço</th>
             <th>Categoria</th>
             <th>Promoção</th>
-            <th style="width:150px"></th>
+            <th style="width:200px"></th>
           </tr>
         </ng-template>
 
@@ -78,6 +78,7 @@
               </ng-template>
             </td>
             <td class="col-actions">
+              <button pButton icon="fas fa-eye" pTooltip="Visualizar" tooltipPosition="top"></button>
               <button pButton icon="fas fa-edit" pTooltip="Editar" tooltipPosition="top"></button>
               <button pButton icon="fas fa-trash-alt" (click)="confirmDelete(product)" pTooltip="Excluir"
                 tooltipPosition="top"></button>
