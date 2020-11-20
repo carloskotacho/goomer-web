@@ -2,6 +2,11 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import 'rxjs/add/operator/toPromise';
+import * as moment from 'moment';
+
+moment.locale('pt-br');
+
+import { Product } from '../core/model';
 
 export class ProductFilter {
   search: string;
@@ -42,5 +47,18 @@ export class ProductService {
     return this.http.delete(`${this.productsUrl}/${id}/v1`)
       .toPromise()
       .then(() => null);
+  }
+
+  store(product: Product): Promise<Product> {
+    product.promotion_start_time = this.formatTime(product.promotion_start_time);
+    product.promotion_end_time = this.formatTime(product.promotion_end_time);
+
+    return this.http.post<Product>(`${this.productsUrl}/v1`, product)
+      .toPromise()
+      .then(response => response);
+  }
+
+  formatTime(time: string) {
+    return moment(time).format('LT');
   }
 }
