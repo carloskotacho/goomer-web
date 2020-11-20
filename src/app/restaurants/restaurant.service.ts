@@ -44,7 +44,7 @@ export class RestaurantService {
   }
 
   listAll(): Promise<any> {
-    return this.http.get(`${this.restaurantsUrl}/v1`)
+    return this.http.get(`${this.restaurantsUrl}/all/v1`)
       .toPromise()
       .then(response => response);
   }

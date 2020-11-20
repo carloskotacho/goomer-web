@@ -1,5 +1,5 @@
 <div class="container">
-  <form #f="ngForm" autocomplete="off">
+  <form #f="ngForm" autocomplete="off" (ngSubmit)="save(f)">
 
     <div class="p-grid">
       <div class="p-col-12">
@@ -12,13 +12,14 @@
 
       <div class="p-col-12 p-md-6 p-fluid">
         <label>Restaurante</label>
-        <p-dropdown name="restaurant" [options]="restaurants" placeholder="Selecione" [filter]="true" ngModel required>
+        <p-dropdown name="restaurant" [options]="restaurants" placeholder="Selecione" [filter]="true"
+          [(ngModel)]="product.restaurant_id" required>
         </p-dropdown>
       </div>
 
       <div class="p-col-12 p-md-6 p-fluid">
         <label>Nome</label>
-        <input pInputText type="text" name="name" ngModel #name="ngModel" required minlength="3"
+        <input pInputText type="text" name="name" [(ngModel)]="product.name" #name="ngModel" required minlength="3"
           placeholder="Marmitex, Buffet, ...">
 
         <app-message [control]="name" error="required" text="Informe o nome do produto"></app-message>
@@ -29,8 +30,8 @@
 
       <div class="p-col-12 p-md-6 p-fluid">
         <label>Categoria</label>
-        <input pInputText type="text" name="category" ngModel #category="ngModel" required minlength="5"
-          placeholder="Doces, Sucos, ...">
+        <input pInputText type="text" name="category" [(ngModel)]="product.category" #category="ngModel" required
+          minlength="5" placeholder="Doces, Sucos, ...">
 
         <app-message [control]="category" error="required" text="Informe o nome da categoria"></app-message>
         <app-message [control]="category" error="minlength"
@@ -41,8 +42,8 @@
       <div class="p-col-12 p-md-6 p-fluid">
         <label>Preço</label>
         <input pInputText type="text" placeholder="0,00" name="price" currencyMask
-          [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }" ngModel #price="ngModel"
-          required minlength="1">
+          [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }" [(ngModel)]="product.price"
+          #price="ngModel" required minlength="1">
 
         <app-message [control]="price" error="required" text="Informe o preço do produto"></app-message>
         <app-message [control]="price" error="minlength"
@@ -52,12 +53,12 @@
 
       <div class="p-col-12">
         <p>Esse produto possuirá alguma promoção?</p>
-        <p-selectButton [options]="options" [(ngModel)]="valueDefaultOption" name="valueDefaultOption" #option>
+        <p-selectButton [options]="promotion" [(ngModel)]="product.promotion" name="promotion" #promo>
         </p-selectButton>
       </div>
     </div>
 
-    <div class="p-grid" *ngIf="option.value === 'SIM'">
+    <div class="p-grid" *ngIf="promo.value">
 
       <div class="p-col-12">
         <p>Preencha as informações sobre a promoção do produto, logo abaixo:</p>
@@ -66,8 +67,8 @@
       <div class="p-col-12 p-md-4 p-fluid">
         <label>Preço promocional</label>
         <input pInputText type="text" placeholder="0,00" name="promotional_price" currencyMask
-          [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }" ngModel
-          #promotional_price="ngModel" required minlength="1">
+          [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }"
+          [(ngModel)]="product.promotional_price" #promotional_price="ngModel" required minlength="1">
 
         <app-message [control]="promotional_price" error="required" text="Informe o preço promocional do produto">
         </app-message>
@@ -79,7 +80,8 @@
       <div class="p-col-12 p-fluid">
         <label>Descrição</label>
         <textarea pInputTextarea [rows]="5" [cols]="30" autoResize="autoResize"
-          placeholder="Escreva alguma coisa... (50% de desconto!!!)"></textarea>
+          placeholder="Escreva alguma coisa... (50% de desconto!!!)" name="description"
+          [(ngModel)]="product.description" #description="ngModel"></textarea>
       </div>
 
       <div class="p-col-12">
@@ -87,37 +89,44 @@
       </div>
 
       <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="monday" [(ngModel)]="selectedValues"></p-checkbox>
+        <p-checkbox name="selectDaysWeek" value="Segunda" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
+        </p-checkbox>
         <label for="monday">Segunda</label>
       </div>
 
       <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="tuesday" [(ngModel)]="selectedValues"></p-checkbox>
+        <p-checkbox name="selectDaysWeek" value="Terça" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
+        </p-checkbox>
         <label for="tuesday">Terça</label>
       </div>
 
       <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="wednesday" [(ngModel)]="selectedValues"></p-checkbox>
+        <p-checkbox name="selectDaysWeek" value="Quarta" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
+        </p-checkbox>
         <label for="wednesday">Quarta</label>
       </div>
 
       <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="thursday" [(ngModel)]="selectedValues"></p-checkbox>
+        <p-checkbox name="selectDaysWeek" value="Quinta" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
+        </p-checkbox>
         <label for="thursday">Quinta</label>
       </div>
 
       <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="friday" [(ngModel)]="selectedValues"></p-checkbox>
+        <p-checkbox name="selectDaysWeek" value="Sexta" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
+        </p-checkbox>
         <label for="friday">Sexta</label>
       </div>
 
       <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="saturday" [(ngModel)]="selectedValues"></p-checkbox>
+        <p-checkbox name="selectDaysWeek" value="Sábado" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
+        </p-checkbox>
         <label for="saturday">Sábado</label>
       </div>
 
       <div class="p-col-12 checkbox">
-        <p-checkbox name="groupname" value="sunday" [(ngModel)]="selectedValues"></p-checkbox>
+        <p-checkbox name="selectDaysWeek" value="Domingo" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
+        </p-checkbox>
         <label for="sunday">Domingo</label>
       </div>
 
@@ -126,13 +135,14 @@
       </div>
 
       <div class="p-col-12 p-md-6 p-fluid">
-        <p-calendar [(ngModel)]="startHours" [timeOnly]="true" inputId="timeonly" name="startHours"
-          placeholder="Início">
+        <p-calendar [(ngModel)]="product.promotion_start_time" [timeOnly]="true" inputId="timeonly"
+          name="promotion_start_time" #promotion_start_time="ngModel" placeholder="Início">
         </p-calendar>
       </div>
 
       <div class="p-col-12 p-md-6 p-fluid">
-        <p-calendar [(ngModel)]="endHours" [timeOnly]="true" inputId="timeonly" name="endHours" placeholder="Término">
+        <p-calendar [(ngModel)]="product.promotion_end_time" [timeOnly]="true" inputId="timeonly"
+          name="promotion_end_time" #promotion_end_time="ngModel" placeholder="Término">
         </p-calendar>
       </div>
     </div>

@@ -17,8 +17,11 @@ export class Product {
   name: string;
   price: string;
   category: string;
+  promotion: boolean;
+  description: string;
   promotional_price: string;
-  promotion_schedules: string;
+  day_week: string[];
+  promotion_start_time: string;
   promotion_end_time: string;
-  restaurant_id = new Restaurant();
+  restaurant_id: number;
 }
