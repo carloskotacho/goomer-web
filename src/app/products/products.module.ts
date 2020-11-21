@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
@@ -27,6 +28,7 @@ import { ProductsSearchComponent } from './products-search/products-search.compo
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
 
     InputTextModule,
     InputTextareaModule,
