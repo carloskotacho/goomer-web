@@ -1,7 +1,31 @@
 <div class="card" style="margin-bottom: 3em;">
-  <p-menubar [model]="items">
+  <p-menubar>
     <ng-template pTemplate="start">
-      <img src="../../../assets/showcase/images/logo_goomer.png" height="30" class="p-mr-2">
+
+      <ul class="p-menubar-root-list">
+        <li>
+          <img src="../../../assets/showcase/images/logo_goomer.png" height="30" class="p-mr-2">
+        </li>
+
+        <li class="p-menuitem ng-star-inserted">
+          <a class="p-menuitem-link p-ripple ng-star-inserted" routerLink="/restaurantes/v1">
+            <span class="p-menuitem-icon fas fa-utensils ng-star-inserted"></span>
+            <span class="p-menuitem-text ng-star-inserted">Restaurantes</span>
+          </a>
+        </li>
+
+        <li class="p-menuitem ng-star-inserted">
+          <a class="p-menuitem-link p-ripple ng-star-inserted" routerLink="/produtos/v1">
+            <span class="p-menuitem-icon fas fa-cubes ng-star-inserted"></span>
+            <span class="p-menuitem-text ng-star-inserted">Produtos</span>
+          </a>
+        </li>
+      </ul>
     </ng-template>
+
+    <a class="p-menuitem-link p-ripple ng-star-inserted" routerLink="">
+      <span class="p-menuitem-icon fas fa-sign-out-alt ng-star-inserted" style="color:#c63737;"></span>
+      <span class="p-menuitem-text ng-star-inserted" style="color:#c63737;">Sair do sistema</span>
+    </a>
   </p-menubar>
 </div>
