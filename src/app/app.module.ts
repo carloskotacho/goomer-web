@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'restaurantes/novo/v1', component: RestaurantStoreComponent },
   { path: 'restaurantes/:id/v1', component: RestaurantStoreComponent },
   { path: 'produtos/v1', component: ProductsSearchComponent },
-  { path: 'produtos/novo/v1', component: ProductStoreComponent }
+  { path: 'produtos/novo/v1', component: ProductStoreComponent },
+  { path: 'products/:id/v1', component: ProductStoreComponent },
 ];
 
 @NgModule({
