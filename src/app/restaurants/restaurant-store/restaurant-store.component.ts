@@ -25,7 +25,19 @@ export class RestaurantStoreComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.params['id']);
+    const restaurantId = this.route.snapshot.params['id'];
+
+    if (restaurantId) {
+      this.loadRestaurant(restaurantId);
+    }
+  }
+
+  loadRestaurant(id: number) {
+    this.restaurantService.findById(id)
+      .then(restaurant => {
+        this.restaurant = restaurant;
+      })
+      .catch(err => this.errorHandler.handle(err.error.error));
   }
 
   save(form: NgForm) {
