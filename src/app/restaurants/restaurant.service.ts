@@ -66,6 +66,28 @@ export class RestaurantService {
       .then(response => response);
   }
 
+  update(restaurant: Restaurant): Promise<Restaurant> {
+    return this.http.put(`${this.restaurantsUrl}/${restaurant.id}/v1`,
+      JSON.stringify(restaurant))
+        .toPromise()
+        .then(response => {
+
+          const restaurantChanged = response as Restaurant;
+
+          return restaurantChanged;
+        });
+  }
+
+  findById(id: number): Promise<Restaurant> {
+    return this.http.get(`${this.restaurantsUrl}/${id}/v1`)
+      .toPromise()
+      .then(response => {
+        const restaurant = response as Restaurant;
+
+        return restaurant;
+      });
+  }
+
   formatTime(time: string) {
     return moment(time).format('LT');
   }

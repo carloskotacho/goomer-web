@@ -72,14 +72,15 @@
             <td>{{ product.price | currency:'BRL':true:'1.2-2' }}</td>
             <td>{{ product.category }}</td>
             <td>
-              <span *ngIf="product.promotion == null; else elsePromotion" class="product-badge not">Não</span>
+              <span *ngIf="product.promotion == false; else elsePromotion" class="product-badge not">Não</span>
               <ng-template #elsePromotion>
                 <span class="product-badge yes">Sim</span>
               </ng-template>
             </td>
             <td class="col-actions">
               <button pButton icon="fas fa-eye" pTooltip="Visualizar" tooltipPosition="top"></button>
-              <button pButton icon="fas fa-edit" pTooltip="Editar" tooltipPosition="top"></button>
+              <button pButton icon="fas fa-edit" [routerLink]="['/products', product.id, 'v1']" pTooltip="Editar"
+                tooltipPosition="top"></button>
               <button pButton icon="fas fa-trash-alt" (click)="confirmDelete(product)" pTooltip="Excluir"
                 tooltipPosition="top"></button>
             </td>

@@ -58,6 +58,16 @@ export class ProductService {
       .then(response => response);
   }
 
+  findById(id: number): Promise<Product> {
+    return this.http.get(`${this.productsUrl}/${id}/v1`)
+      .toPromise()
+      .then(response => {
+        const product = response as Product;
+
+        return product;
+      });
+  }
+
   formatTime(time: string) {
     return moment(time).format('LT');
   }

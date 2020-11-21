@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 import { ToastyService } from 'ng2-toasty';
 
@@ -20,9 +21,23 @@ export class RestaurantStoreComponent implements OnInit {
     private restaurantService: RestaurantService,
     private errorHandler: ErrorHandlerService,
     private toasty: ToastyService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
+    const restaurantId = this.route.snapshot.params['id'];
+
+    if (restaurantId) {
+      this.loadRestaurant(restaurantId);
+    }
+  }
+
+  loadRestaurant(id: number) {
+    this.restaurantService.findById(id)
+      .then(restaurant => {
+        this.restaurant = restaurant;
+      })
+      .catch(err => this.errorHandler.handle(err.error.error));
   }
 
   save(form: NgForm) {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 import { SelectItem } from 'primeng/api';
 import { ToastyService } from 'ng2-toasty';
@@ -33,6 +34,7 @@ export class ProductStoreComponent implements OnInit {
     private restaurantService: RestaurantService,
     private errorHandler: ErrorHandlerService,
     private toasty: ToastyService,
+    private route: ActivatedRoute,
   ) {
     this.promotion = [
       { label: 'Não', value: false },
@@ -41,8 +43,25 @@ export class ProductStoreComponent implements OnInit {
   }
 
   ngOnInit() {
+    const productId = this.route.snapshot.params['id'];
+
+    if (productId) {
+      this.loadProduct(productId);
+    }
+
     this.loadRestaurant();
     this.product.promotion = false;
+  }
+
+  loadProduct(id: number) {
+    this.productService.findById(id)
+      .then(product => {
+        this.product = product;
+
+        console.log('Day Week: ', this.product.day_week);
+        console.log('Promotion: ', this.product.promotion);
+      })
+      .catch(err => this.errorHandler.handle(err.error.error));
   }
 
   loadRestaurant() {
