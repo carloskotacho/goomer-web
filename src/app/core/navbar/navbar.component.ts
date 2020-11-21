@@ -9,21 +9,8 @@ import { MenuItem } from 'primeng/api';
 })
 export class NavbarComponent implements OnInit {
 
-  items: MenuItem[];
-
   constructor() { }
 
-  ngOnInit() {
-    this.items = [
-      {
-        label: 'Restaurantes',
-        icon: 'fas fa-utensils',
-      },
-      {
-        label: 'Produtos',
-        icon: 'fas fa-cubes',
-      },
-    ];
-  }
+  ngOnInit() {}
 
 }
