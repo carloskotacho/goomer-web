@@ -78,6 +78,16 @@ export class RestaurantService {
         });
   }
 
+  findById(id: number): Promise<Restaurant> {
+    return this.http.get(`${this.restaurantsUrl}/${id}/v1`)
+      .toPromise()
+      .then(response => {
+        const restaurant = response as Restaurant;
+
+        return restaurant;
+      });
+  }
+
   formatTime(time: string) {
     return moment(time).format('LT');
   }
