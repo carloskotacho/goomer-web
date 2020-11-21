@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 import { ToastyService } from 'ng2-toasty';
 
@@ -20,9 +21,11 @@ export class RestaurantStoreComponent implements OnInit {
     private restaurantService: RestaurantService,
     private errorHandler: ErrorHandlerService,
     private toasty: ToastyService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
+    console.log(this.route.snapshot.params['id']);
   }
 
   save(form: NgForm) {

@@ -70,7 +70,8 @@
             <td>{{ restaurant.address }}</td>
             <td>{{ restaurant.schedules }}</td>
             <td class="col-actions">
-              <button pButton icon="fas fa-edit" pTooltip="Editar" tooltipPosition="top"></button>
+              <button pButton icon="fas fa-edit" [routerLink]="['/restaurantes', restaurant.id, 'v1']" pTooltip="Editar"
+                tooltipPosition="top"></button>
               <button pButton icon="fas fa-trash-alt" (click)="confirmDelete(restaurant)" pTooltip="Excluir"
                 tooltipPosition="top"></button>
             </td>
