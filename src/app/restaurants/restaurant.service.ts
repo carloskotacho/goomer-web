@@ -67,15 +67,14 @@ export class RestaurantService {
   }
 
   update(restaurant: Restaurant): Promise<Restaurant> {
-    return this.http.put(`${this.restaurantsUrl}/${restaurant.id}/v1`,
-      JSON.stringify(restaurant))
+    restaurant.week_opening_time = this.formatTime(restaurant.week_opening_time);
+    restaurant.week_closing_time = this.formatTime(restaurant.week_closing_time);
+    restaurant.weekend_opening_time = this.formatTime(restaurant.weekend_opening_time);
+    restaurant.weekend_closing_time = this.formatTime(restaurant.weekend_closing_time);
+
+    return this.http.put<Restaurant>(`${this.restaurantsUrl}/${restaurant.id}/v1`, restaurant)
         .toPromise()
-        .then(response => {
-
-          const restaurantChanged = response as Restaurant;
-
-          return restaurantChanged;
-        });
+        .then(response => response);
   }
 
   findById(id: number): Promise<Restaurant> {

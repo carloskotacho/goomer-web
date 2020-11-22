@@ -32,6 +32,10 @@ export class RestaurantStoreComponent implements OnInit {
     }
   }
 
+  get editing() {
+    return Boolean(this.restaurant.id);
+  }
+
   loadRestaurant(id: number) {
     this.restaurantService.findById(id)
       .then(restaurant => {
@@ -41,6 +45,14 @@ export class RestaurantStoreComponent implements OnInit {
   }
 
   save(form: NgForm) {
+    if (this.editing) {
+      this.updateRestaurant(form);
+    } else {
+      this.addRestaurant(form);
+    }
+  }
+
+  addRestaurant(form: NgForm) {
     this.restaurantService.store(this.restaurant)
       .then(() => {
         this.toasty.success('Restaurante adicionado com sucesso!');
@@ -49,5 +61,15 @@ export class RestaurantStoreComponent implements OnInit {
         this.restaurant = new Restaurant();
       })
       .catch(err => this.errorHandler.handle(err.error.error));
+  }
+
+  updateRestaurant(form: NgForm) {
+    this.restaurantService.update(this.restaurant)
+      .then(restaurant => {
+        this.restaurant = restaurant;
+
+        this.toasty.success('Restaurante adicionado com sucesso!');
+      })
+      .catch(err => this.errorHandler.handle(err));
   }
 }
