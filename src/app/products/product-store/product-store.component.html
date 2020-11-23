@@ -88,46 +88,10 @@
         <p>Selecione os dias da semana que ocorrerá a promoção:</p>
       </div>
 
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="selectDaysWeek" value="Segunda" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
-        </p-checkbox>
-        <label for="monday">Segunda</label>
-      </div>
-
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="selectDaysWeek" value="Terça" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
-        </p-checkbox>
-        <label for="tuesday">Terça</label>
-      </div>
-
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="selectDaysWeek" value="Quarta" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
-        </p-checkbox>
-        <label for="wednesday">Quarta</label>
-      </div>
-
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="selectDaysWeek" value="Quinta" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
-        </p-checkbox>
-        <label for="thursday">Quinta</label>
-      </div>
-
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="selectDaysWeek" value="Sexta" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
-        </p-checkbox>
-        <label for="friday">Sexta</label>
-      </div>
-
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="selectDaysWeek" value="Sábado" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
-        </p-checkbox>
-        <label for="saturday">Sábado</label>
-      </div>
-
-      <div class="p-col-12 checkbox">
-        <p-checkbox name="selectDaysWeek" value="Domingo" [(ngModel)]="product.day_week" #selectDaysWeek="ngModel">
-        </p-checkbox>
-        <label for="sunday">Domingo</label>
+      <div class="p-col-12">
+        <p-multiSelect [options]="daysWeek" [(ngModel)]="product.day_week" defaultLabel="Selecione os dias da semana"
+          optionLabel="nameDaysWeek" name="daysWeek" #selectedDaysWeek="ngModel">
+        </p-multiSelect>
       </div>
 
       <div class="p-col-12">

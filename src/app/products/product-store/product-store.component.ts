@@ -29,6 +29,8 @@ export class ProductStoreComponent implements OnInit {
 
   product = new Product();
 
+  daysWeek: any[];
+
   constructor(
     private productService: ProductService,
     private restaurantService: RestaurantService,
@@ -43,7 +45,10 @@ export class ProductStoreComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadDaysWeek();
+
     const productId = this.route.snapshot.params['id'];
+
 
     if (productId) {
       this.loadProduct(productId);
@@ -51,6 +56,19 @@ export class ProductStoreComponent implements OnInit {
 
     this.loadRestaurant();
     this.product.promotion = false;
+
+  }
+
+  loadDaysWeek() {
+    this.daysWeek = [
+      { nameDaysWeek: 'Segunda', code: 0 },
+      { nameDaysWeek: 'Terça', code: 1 },
+      { nameDaysWeek: 'Quarta', code: 2 },
+      { nameDaysWeek: 'Quinta', code: 3 },
+      { nameDaysWeek: 'Sexta', code: 4 },
+      { nameDaysWeek: 'Sábado', code: 5 },
+      { nameDaysWeek: 'Domingo', code: 6 }
+    ];
   }
 
   get editing() {
