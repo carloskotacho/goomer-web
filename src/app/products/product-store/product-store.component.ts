@@ -53,6 +53,10 @@ export class ProductStoreComponent implements OnInit {
     this.product.promotion = false;
   }
 
+  get editing() {
+    return Boolean(this.product.id);
+  }
+
   loadProduct(id: number) {
     this.productService.findById(id)
       .then(product => {
@@ -73,6 +77,14 @@ export class ProductStoreComponent implements OnInit {
   }
 
   save(form: NgForm) {
+    if (this.editing) {
+      this.updateProduct(form);
+    } else {
+      this.addProduct(form);
+    }
+  }
+
+  addProduct(form: NgForm) {
     this.productService.store(this.product)
       .then(() => {
         this.toasty.success('Produto adicionado com sucesso!');
