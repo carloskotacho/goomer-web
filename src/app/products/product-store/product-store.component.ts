@@ -82,4 +82,14 @@ export class ProductStoreComponent implements OnInit {
       })
       .catch(err => this.errorHandler.handle(err.error.error));
   }
+
+  updateProduct(form: NgForm) {
+    this.productService.update(this.product)
+      .then(product => {
+        this.product = product;
+
+        this.toasty.success('Produto alterado com sucesso!');
+      })
+      .catch(err => this.errorHandler.handle(err));
+  }
 }
