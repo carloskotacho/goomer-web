@@ -53,9 +53,21 @@ export class ProductService {
     product.promotion_start_time = this.formatTime(product.promotion_start_time);
     product.promotion_end_time = this.formatTime(product.promotion_end_time);
 
+    product.day_week = this.extractNameToDayweek(product.day_week);
+
     return this.http.post<Product>(`${this.productsUrl}/v1`, product)
-      .toPromise()
-      .then(response => response);
+    .toPromise()
+    .then(response => response);
+  }
+
+  extractNameToDayweek(dayWeekList: string[]){
+    const dayWeekAux = [];
+
+    dayWeekList.forEach(e => {
+      dayWeekAux.push(e['nameDaysWeek']);
+    });
+
+    return dayWeekAux;
   }
 
   update(product: Product): Promise<Product> {
