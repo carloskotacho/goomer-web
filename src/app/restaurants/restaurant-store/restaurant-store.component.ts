@@ -68,7 +68,7 @@ export class RestaurantStoreComponent implements OnInit {
       .then(restaurant => {
         this.restaurant = restaurant;
 
-        this.toasty.success('Restaurante adicionado com sucesso!');
+        this.toasty.success('Restaurante alterado com sucesso!');
       })
       .catch(err => this.errorHandler.handle(err));
   }
