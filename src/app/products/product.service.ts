@@ -58,6 +58,15 @@ export class ProductService {
       .then(response => response);
   }
 
+  update(product: Product): Promise<Product> {
+    product.promotion_start_time = this.formatTime(product.promotion_start_time);
+    product.promotion_end_time = this.formatTime(product.promotion_end_time);
+
+    return this.http.put<Product>(`${this.productsUrl}/${product.id}/v1`, product)
+      .toPromise()
+      .then(response => response);
+  }
+
   findById(id: number): Promise<Product> {
     return this.http.get(`${this.productsUrl}/${id}/v1`)
       .toPromise()
