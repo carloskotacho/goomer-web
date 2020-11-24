@@ -49,7 +49,6 @@ export class ProductStoreComponent implements OnInit {
 
     const productId = this.route.snapshot.params['id'];
 
-
     if (productId) {
       this.loadProduct(productId);
     }
@@ -79,9 +78,6 @@ export class ProductStoreComponent implements OnInit {
     this.productService.findById(id)
       .then(product => {
         this.product = product;
-
-        console.log('Day Week: ', this.product.day_week);
-        console.log('Promotion: ', this.product.promotion);
       })
       .catch(err => this.errorHandler.handle(err.error.error));
   }
