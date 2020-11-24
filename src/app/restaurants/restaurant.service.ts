@@ -66,6 +66,27 @@ export class RestaurantService {
       .then(response => response);
   }
 
+  update(restaurant: Restaurant): Promise<Restaurant> {
+    restaurant.week_opening_time = this.formatTime(restaurant.week_opening_time);
+    restaurant.week_closing_time = this.formatTime(restaurant.week_closing_time);
+    restaurant.weekend_opening_time = this.formatTime(restaurant.weekend_opening_time);
+    restaurant.weekend_closing_time = this.formatTime(restaurant.weekend_closing_time);
+
+    return this.http.put<Restaurant>(`${this.restaurantsUrl}/${restaurant.id}/v1`, restaurant)
+        .toPromise()
+        .then(response => response);
+  }
+
+  findById(id: number): Promise<Restaurant> {
+    return this.http.get(`${this.restaurantsUrl}/${id}/v1`)
+      .toPromise()
+      .then(response => {
+        const restaurant = response as Restaurant;
+
+        return restaurant;
+      });
+  }
+
   formatTime(time: string) {
     return moment(time).format('LT');
   }
