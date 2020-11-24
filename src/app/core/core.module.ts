@@ -13,6 +13,7 @@ import { ErrorHandlerService } from './error-handler.service';
 import { RestaurantService } from './../restaurants/restaurant.service';
 import { ProductService } from './../products/product.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PageNotFoundComponent } from './page-not-found.component';
 
 registerLocaleData(localePt);
 
@@ -26,6 +27,7 @@ registerLocaleData(localePt);
   ],
   declarations: [
     NavbarComponent,
+    PageNotFoundComponent,
   ],
   exports: [
     NavbarComponent,
