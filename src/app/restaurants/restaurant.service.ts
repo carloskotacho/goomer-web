@@ -6,6 +6,7 @@ import * as moment from 'moment';
 
 moment.locale('pt-br');
 
+import { environment } from './../../environments/environment';
 import { Restaurant } from '../core/model';
 
 export class RestaurantFilter {
@@ -19,9 +20,11 @@ export class RestaurantFilter {
 })
 export class RestaurantService {
 
-  restaurantsUrl = 'http://localhost:3333/api/restaurants';
+  restaurantsUrl: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.restaurantsUrl = `${environment.apiUrl}/restaurants`;
+  }
 
   index(filter: RestaurantFilter): Promise<any> {
     let params = new HttpParams();

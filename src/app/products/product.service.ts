@@ -6,6 +6,7 @@ import * as moment from 'moment';
 
 moment.locale('pt-br');
 
+import { environment } from './../../environments/environment';
 import { Product } from '../core/model';
 
 export class ProductFilter {
@@ -19,9 +20,11 @@ export class ProductFilter {
 })
 export class ProductService {
 
-  productsUrl = 'http://localhost:3333/api/products';
+  productsUrl: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.productsUrl = `${environment.apiUrl}/products`;
+  }
 
   index(filter: ProductFilter): Promise<any> {
     let params = new HttpParams();
