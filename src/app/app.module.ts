@@ -19,6 +19,7 @@ import { ProductStoreComponent } from './products/product-store/product-store.co
 import { RestaurantStoreComponent } from './restaurants/restaurant-store/restaurant-store.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'restaurantes/v1', pathMatch: 'full' },
   { path: 'restaurantes/v1', component: RestaurantsSearchComponent },
   { path: 'restaurantes/novo/v1', component: RestaurantStoreComponent },
   { path: 'restaurantes/:id/v1', component: RestaurantStoreComponent },
