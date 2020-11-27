@@ -26,14 +26,6 @@
  <a href="#user-content--licença">Licença</a>
 </p>
 
-## ➤ Layout
-
-O layout da aplicação está disponível no Figma:
-
-<a href="#">
-  <img alt="Made by carloshk" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361?style=flat-square&logo=figma">
-</a>
-
 ## ➤ Sobre o projeto
 
 ### Instruções
@@ -78,11 +70,23 @@ O layout da aplicação está disponível no Figma:
 
 ## ➤ Como executar o projeto
 
-### Pré-requisitos
+```
+# Clone este repositório
+$ git clone git@github.com:carloskotacho/goomer-web.git
 
-#### 🧭 Rodando a aplicação (Frontend)
+# Acesse a pasta do projeto no terminal/cmd
+$ cd goomer-web
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação
+$ npm start
+```
 
 ## ➤ Usando
+
+Acesse: [http://localhost:4200]()
 
 ## ➤ Autor
 
